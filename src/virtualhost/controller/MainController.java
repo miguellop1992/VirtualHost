@@ -105,6 +105,9 @@ public class MainController implements Initializable {
                 txtMsg.setFill(Color.GREEN);
                 txtMsg.setText("Conexion Exitosa ");
             }
+        }  catch (FileNotFoundException ex) {
+            txtMsg.setFill(Color.RED);
+            txtMsg.setText("Ejecute la Aplicacion como administrador ");
         } catch (java.net.UnknownHostException ex) {
             txtMsg.setFill(Color.RED);
             txtMsg.setText("Conexion Fallida ");
