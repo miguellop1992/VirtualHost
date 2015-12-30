@@ -30,6 +30,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import virtualhost.main.Main;
 
 /**
  *
@@ -184,6 +185,7 @@ public class MainController implements Initializable {
             stageInfo = new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("/virtualhost/view/info.fxml"));
             Scene scene = new Scene(root);
+            stageInfo.getIcons().addAll(Main.ICON);
             stageInfo.setScene(scene);
         } catch (IOException ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);

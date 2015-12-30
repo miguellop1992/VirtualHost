@@ -17,13 +17,13 @@ import javafx.stage.Stage;
  * @author Administrator
  */
 public class Main extends Application {
-    
+    public static Image ICON=new Image(Main.class.getResourceAsStream("/virtualhost/icon/host.jpg"));
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/virtualhost/view/main.fxml"));
         
         Scene scene = new Scene(root);
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("/virtualhost/icon/host.jpg")));
+        stage.getIcons().add(ICON);
         stage.setScene(scene);
         stage.show();
     }
