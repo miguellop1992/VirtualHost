@@ -21,11 +21,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 /**
  *
@@ -48,11 +52,13 @@ public class MainController implements Initializable {
     private String SUB_DNS = "dns.sub";
     private String indexSearch = "#condo";
     private final File store;
+    private Stage stageInfo;
 
     /**
      *
      */
     public MainController() {
+        init();
         //load properties 
         properties = new Properties();
         store = new File(System.getProperty("user.dir") + File.separator + "host.conf");
@@ -114,7 +120,11 @@ public class MainController implements Initializable {
         }
 
     }
-
+    @FXML
+    private void onActionBtnInfo(ActionEvent event) throws IOException {
+        stageInfo.show();
+    }
+    
     private boolean write(String dns) throws IOException {
         String lastFile = readFile();
         FileWriter w = new FileWriter(vhost);
@@ -167,6 +177,17 @@ public class MainController implements Initializable {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+
+    private void init() {
+        try {
+            stageInfo = new Stage();
+            Parent root = FXMLLoader.load(getClass().getResource("/virtualhost/view/info.fxml"));
+            Scene scene = new Scene(root);
+            stageInfo.setScene(scene);
+        } catch (IOException ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

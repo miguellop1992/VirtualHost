@@ -23,5 +23,6 @@
             <Font name="System Bold" size="11.0" />
          </font>
       </Text>
+      <Button maxHeight="25.0" mnemonicParsing="false" onAction="#onActionBtnInfo" text="Info" AnchorPane.rightAnchor="5.0" />
     </children>
 </AnchorPane>
